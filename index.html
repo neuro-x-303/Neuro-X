@@ -4,29 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neuro X - Advanced Neurocomputing</title>
   <style>
-    body, html {
+    body {
       margin: 0;
-      overflow: hidden;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
       color: white;
-      background: #000;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .content {
-      position: relative;
-      z-index: 1;
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
     }
     header {
       text-align: center;
-      margin-bottom: 3rem;
+      padding: 3rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
     }
     header h1 {
       font-size: 3rem;
@@ -39,103 +28,119 @@
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
-    section {
-      margin-bottom: 3rem;
-      background: rgba(0, 0, 50, 0.6);
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,0,100,0.3);
+    .neural-net {
+      perspective: 1200px;
+      margin: 3rem auto;
+      width: 95vw;
+      max-width: 1300px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: rotate 20s infinite linear;
+      transform-style: preserve-3d;
     }
-    section h2 {
-      font-size: 2rem;
-      color: #00eaff;
+    @keyframes rotate {
+      from { transform: rotateY(0); }
+      to { transform: rotateY(360deg); }
+    }
+    .layer {
+      display: flex;
+      flex-direction: column;
+      transform-style: preserve-3d;
+      margin: 0 20px;
+    }
+    .neuron {
+      width: 20px;
+      height: 20px;
+      background-color: #0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #0ff;
+      margin: 8px;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .ad-section, .info-section, .cnn-section, .contact-section {
+      background: rgba(20, 20, 40, 0.6);
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      margin: 2rem 1rem;
+      border-radius: 20px;
+    }
+    .ad-section h2, .info-section h2, .cnn-section h2, .contact-section h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #ff6a00, #ee0979);
+      -webkit-background-clip: text;
+      color: transparent;
       margin-bottom: 1rem;
     }
-    a {
-      color: #00eaff;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .ad-button {
+      padding: 0.8rem 2rem;
+      background-color: #ff416c;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .ad-button:hover {
+      background-color: #ff4b2b;
     }
   </style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
-  <div class="content">
-    <header>
-      <h1>Neuro X</h1>
-      <p>Exploring the Future of Full Neurocomputing</p>
-    </header><section>
-  <h2>Introducing NSV1</h2>
-  <p>
-The Neuro Smart Vision 1 (NSV1) is an intelligent digit recognition system powered by Convolutional Neural Networks (CNN). Designed to accurately identify handwritten digits from 0 to 9, NSV1 combines deep learning and computer vision to deliver fast and precise predictions. Its streamlined architecture makes it ideal for real-time applications, educational projects, and AI experimentation.
-NSV1 is developed by Srisank Choudhary from Neuro X, reflecting a vision to make smart AI solutions accessible and effective.</p>
-</section>
-
-<section>
-  <h2>What is Neurocomputing?</h2>
-  <p>Neurocomputing is the application of models inspired by the human brain to process data and solve problems. These systems learn and evolve, enabling intelligent behavior without explicit programming.</p>
-</section>
-
-<section>
-  <h2>Innovations and Theories</h2>
-  <p>From CNNs and spiking neural networks to neuro-symbolic AI and neuromorphic hardware, Neuro X integrates diverse approaches for cognitive-scale computing. Our systems learn adaptively and simulate complex behavior via feedback-rich architectures.</p>
-</section>
-
-<section>
-  <h2>Dynamic 3D CNN Models</h2>
-  <p>We implement multi-dimensional convolutional layers that update in real time, similar to how the brain's visual cortex processes data. Our models are ideal for real-time style transfer, perception, and adaptive generative design.</p>
-</section>
-
-<section>
-  <h2>Contact & Social</h2>
-  <p>Email: <a href="mailto:neuro.x303@gmail.com">neuro.x303@gmail.com</a></p>
-  <p>Instagram: <a href="https://instagram.com/royalty_shaurya" target="_blank">@royalty_shaurya</a></p>
-</section>
-<section>
-  <h2>Owner: Srisank Choudhary</h2>
-</section>
-
-  </div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bg')});
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const material = new THREE.MeshStandardMaterial({ color: 0x00ffff });
-    const neurons = [];
-
-    for (let i = 0; i < 100; i++) {
-      const neuron = new THREE.Mesh(geometry, material);
-      neuron.position.set(
-        (Math.random() - 0.5) * 30,
-        (Math.random() - 0.5) * 30,
-        (Math.random() - 0.5) * 30
-      );
-      scene.add(neuron);
-      neurons.push(neuron);
-    }
-
-    const light = new THREE.PointLight(0xffffff, 1, 100);
-    light.position.set(10, 10, 10);
-    scene.add(light);
-    scene.add(new THREE.AmbientLight(0x404040));
-
-    camera.position.z = 20;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      neurons.forEach(n => {
-        n.rotation.x += 0.01;
-        n.rotation.y += 0.01;
-      });
-      scene.rotation.y += 0.001;
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script></body>
+  <header>
+    <h1>Neuro X</h1>
+    <p>Exploring the Future of Full Neurocomputing</p>
+  </header>  <div class="neural-net">
+    <div class="layer">
+      <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
+    </div>
+    <div class="layer">
+      <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
+    </div>
+    <div class="layer">
+      <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
+    </div>
+    <div class="layer">
+      <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
+    </div>
+  </div>  <section class="ad-section">
+    <h2>Introducing NSV1</h2>
+    <p>The next step in visual cognition. NSV1 is your gateway to real-time neural-style transformation powered by our cutting-edge Neuro X architecture.</p>
+    <button class="ad-button">Explore NSV1</button>
+  </section>  <section class="info-section">
+    <h2>What is Neurocomputing?</h2>
+    <p>Neurocomputing is a fusion of artificial intelligence, machine learning, and computational neuroscience. It seeks to replicate the brain's functionality using mathematical models and computer systems, enabling intelligent, adaptive, and self-organizing behavior in machines.</p>
+    <h2>Inventions and Progress</h2>
+    <p>Key innovations include neuromorphic chips, deep convolutional neural networks (CNNs), recurrent networks, attention mechanisms, and hybrid neuro-symbolic systems that reason like humans.</p>
+    <h2>Theoretical Foundations</h2>
+    <p><strong>Hebbian Learning:</strong> Neurons that fire together wire together — a basis for learning algorithms.</p>
+    <p><strong>Backpropagation:</strong> Core learning method in deep networks inspired by error correction in biological neurons.</p>
+    <p><strong>Neuroevolution:</strong> Uses evolutionary algorithms to optimize neural networks, mimicking brain evolution.</p>
+    <p><strong>Predictive Coding:</strong> The brain as a prediction machine; now used in generative models and compression.</p>
+  </section>  <section class="cnn-section">
+    <h2>3D Dynamic Convolutional Neural Networks (CNNs)</h2>
+    <p>Our models include dynamic 3D CNNs that simulate visual cortex behavior, enabling real-time pattern recognition, image processing, and neural-style transfer. Layers adapt based on feedback, mimicking cognitive plasticity.</p>
+    <p>Applications range from autonomous systems, medical diagnostics, real-time surveillance, to generative creativity. Neuro X CNNs are designed with modular, multi-dimensional filters and self-optimizing weights.</p>
+    <p>NSV1 is the first real-time deployment of these dynamic 3D CNNs, setting new benchmarks in adaptive visual transformation.</p>
+  </section>  <section class="contact-section">
+    <h2>Contact & Follow</h2>
+    <p>Email: <a href="mailto:neuro.x303@gmail.com" style="color: #00eaff;">neuro.x303@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/royalty_shaurya" target="_blank" style="color: #00eaff;">@royalty_shaurya</a></p>
+    <p>Stay connected for updates on research, demos, and development of next-gen neuro-AI models.</p>
+  </section>
+  <section>
+    <h1>Owner: Srisank Choudhary</h1>
+  </section>
+</body>
 </html>
