@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -95,13 +96,48 @@
     .ad-button:hover {
       background-color: #ff4b2b;
     }
+    /* Style for CNN Kernel Visualizer section */
+    .cnn-visualizer-section {
+      background-color: black;
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      margin: 2rem 1rem;
+      border-radius: 20px;
+    }
+    .cnn-visualizer-section h1 {
+      color: #00bcd4;
+    }
+    .cnn-visualizer-section .controls {
+      margin-bottom: 20px;
+    }
+    .cnn-visualizer-section .slider-group {
+      margin: 10px 0;
+    }
+    .cnn-visualizer-section label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .cnn-visualizer-section input[type="range"] {
+      width: 200px;
+    }
+    .cnn-visualizer-section .canvas-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .cnn-visualizer-section canvas {
+      background-color: #111;
+      border: 2px solid #00bcd4;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Neuro X</h1>
     <p>Exploring the Future of Full Neurocomputing</p>
-  </header>  <div class="neural-net">
+  </header>
+  <div class="neural-net">
     <div class="layer">
       <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
     </div>
@@ -114,15 +150,54 @@
     <div class="layer">
       <div class="neuron"></div><div class="neuron"></div><div class="neuron"></div>
     </div>
-  </div>  <section class="ad-section">
+  </div>
+     <!-- CNN Kernel Visualizer Section -->
+  <section class="cnn-visualizer-section">
+    <h1>CNN Kernel Visualizer</h1>
+
+    <div class="controls">
+      <div class="slider-group">
+        <label for="inputSize">Input Size:</label>
+        <input type="range" id="inputSize" min="5" max="25" value="12">
+        <span id="inputSizeVal">5</span>
+      </div>
+      <div class="slider-group">
+        <label for="kernelSize">Kernel Size:</label>
+        <input type="range" id="kernelSize" min="2" max="5" value="2">
+        <span id="kernelSizeVal">2</span>
+      </div>
+      <div class="slider-group">
+        <label for="padding">Padding:</label>
+        <input type="range" id="padding" min="0" max="2" value="0">
+        <span id="paddingVal">0</span>
+      </div>
+      <div class="slider-group">
+        <label for="stride">Stride:</label>
+        <input type="range" id="stride" min="1" max="3" value="1">
+        <span id="strideVal">1</span>
+      </div>
+    </div>
+
+    <div class="canvas-container">
+      <div>
+        <h3>Input Matrix</h3>
+        <canvas id="inputCanvas" width="300" height="300"></canvas>
+      </div>
+      <div>
+        <h3>Output Matrix</h3>
+        <canvas id="outputCanvas" width="300" height="300"></canvas>
+      </div>
+    </div>
+</section>
+  <section class="ad-section">
     <h2>Introducing NSV1</h2>
     <p>The Neuro Smart Vision 1 (NSV1) is an intelligent digit recognition system powered by Convolutional Neural Networks (CNN). Designed to accurately identify handwritten digits from 0 to 9, NSV1 combines deep learning and computer vision to deliver fast and precise predictions. Its streamlined architecture makes it ideal for real-time applications, educational projects, and AI experimentation.
 NSV1 is developed by Srisank Choudhary from Neuro X, reflecting a vision to make smart AI solutions accessible and effective.</p>
     <button class="ad-button" onclick="window.location.href='https://neuro-x-303.github.io/NSV1/'">
-  Explore NSV1
-</button>
-
-  </section>  <section class="info-section">
+      Explore NSV1
+    </button>
+  </section>
+  <section class="info-section">
     <h2>What is Neurocomputing?</h2>
     <p>Neurocomputing is a fusion of artificial intelligence, machine learning, and computational neuroscience. It seeks to replicate the brain's functionality using mathematical models and computer systems, enabling intelligent, adaptive, and self-organizing behavior in machines.</p>
     <h2>Inventions and Progress</h2>
@@ -132,19 +207,120 @@ NSV1 is developed by Srisank Choudhary from Neuro X, reflecting a vision to make
     <p><strong>Backpropagation:</strong> Core learning method in deep networks inspired by error correction in biological neurons.</p>
     <p><strong>Neuroevolution:</strong> Uses evolutionary algorithms to optimize neural networks, mimicking brain evolution.</p>
     <p><strong>Predictive Coding:</strong> The brain as a prediction machine; now used in generative models and compression.</p>
-  </section>  <section class="cnn-section">
+  </section>
+  <section class="cnn-section">
     <h2>3D Dynamic Convolutional Neural Networks (CNNs)</h2>
     <p>Our models include dynamic 3D CNNs that simulate visual cortex behavior, enabling real-time pattern recognition, image processing, and neural-style transfer. Layers adapt based on feedback, mimicking cognitive plasticity.</p>
     <p>Applications range from autonomous systems, medical diagnostics, real-time surveillance, to generative creativity. Neuro X CNNs are designed with modular, multi-dimensional filters and self-optimizing weights.</p>
     <p>NSV1 is the first real-time deployment of these dynamic 3D CNNs, setting new benchmarks in adaptive visual transformation.</p>
-  </section>  <section class="contact-section">
+  </section>
+ 
+  <section class="contact-section">
     <h2>Contact & Follow</h2>
     <p>Email: <a href="mailto:neuro.x303@gmail.com" style="color: #00eaff;">neuro.x303@gmail.com</a></p>
     <p>Instagram: <a href="https://instagram.com/royalty_shaurya" target="_blank" style="color: #00eaff;">@royalty_shaurya</a></p>
     <p>Stay connected for updates on research, demos, and development of next-gen neuro-AI models.</p>
   </section>
-  <section class='contact-section'>
+  <section class="contact-section">
     <h1>Owner: Srisank Choudhary</h1>
+  </section>
+
+
+    <script>
+      const inputCanvas = document.getElementById("inputCanvas");
+      const outputCanvas = document.getElementById("outputCanvas");
+      const ctxInput = inputCanvas.getContext("2d");
+      const ctxOutput = outputCanvas.getContext("2d");
+
+      const inputSizeSlider = document.getElementById("inputSize");
+      const kernelSizeSlider = document.getElementById("kernelSize");
+      const paddingSlider = document.getElementById("padding");
+      const strideSlider = document.getElementById("stride");
+
+      const inputVal = document.getElementById("inputSizeVal");
+      const kernelVal = document.getElementById("kernelSizeVal");
+      const paddingVal = document.getElementById("paddingVal");
+      const strideVal = document.getElementById("strideVal");
+
+      let i = 0, j = 0;
+      let animationFrame;
+
+      function drawGrid(ctx, rows, cols, highlight = []) {
+        const cellSize = 300 / rows;
+        ctx.clearRect(0, 0, 300, 300);
+
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const isHighlight = highlight.some(h => h[0] === y && h[1] === x);
+
+            if (isHighlight) {
+              ctx.fillStyle = "#00bcd4";
+              ctx.shadowColor = "#00bcd4";
+              ctx.shadowBlur = 20;
+            } else {
+              ctx.fillStyle = "#222";
+              ctx.shadowColor = "transparent";
+              ctx.shadowBlur = 0;
+            }
+
+            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+            ctx.strokeStyle = "#555";
+            ctx.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
+          }
+        }
+      }
+
+      function animate() {
+        const inputSize = parseInt(inputSizeSlider.value);
+        const kernelSize = parseInt(kernelSizeSlider.value);
+        const padding = parseInt(paddingSlider.value);
+        const stride = parseInt(strideSlider.value);
+
+        const paddedInput = inputSize + 2 * padding;
+        const outputSize = Math.floor((paddedInput - kernelSize) / stride + 1);
+
+        inputVal.textContent = inputSize;
+        kernelVal.textContent = kernelSize;
+        paddingVal.textContent = padding;
+        strideVal.textContent = stride;
+
+        let highlight = [];
+        for (let ki = 0; ki < kernelSize; ki++) {
+          for (let kj = 0; kj < kernelSize; kj++) {
+            highlight.push([i + ki, j + kj]);
+          }
+        }
+
+        drawGrid(ctxInput, paddedInput, paddedInput, highlight);
+        drawGrid(ctxOutput, outputSize, outputSize, [[Math.floor(i / stride), Math.floor(j / stride)]]);
+
+        j += stride;
+        if (j + kernelSize > paddedInput) {
+          j = 0;
+          i += stride;
+        }
+        if (i + kernelSize > paddedInput) {
+          i = 0;
+          j = 0;
+        }
+
+        animationFrame = setTimeout(animate, 500);
+      }
+
+      function start() {
+        clearTimeout(animationFrame);
+        i = 0;
+        j = 0;
+        animate();
+      }
+
+      inputSizeSlider.oninput = start;
+      kernelSizeSlider.oninput = start;
+      paddingSlider.oninput = start;
+      strideSlider.oninput = start;
+
+      start();
+    </script>
   </section>
 </body>
 </html>
